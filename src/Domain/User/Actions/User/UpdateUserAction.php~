@@ -1,0 +1,20 @@
+<?php
+
+namespace Domain\User\Actions\User;
+
+use Domain\User\DataTransferObjects\UserData;
+use Domain\User\Models\User;
+
+class UpdateUserAction
+{
+    /**
+     * @param User $user
+     * @param UserData $userData
+     * @return User
+     */
+    public function __invoke(User $user, UserData $userData): User
+    {
+        $user->update($userData->toArray());
+        return $user;
+    }
+}
